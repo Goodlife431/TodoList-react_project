@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import TodoList from "./TodoList";
 import nextId from "react-id-generator";
+import './App.css';
 function App() {
     const [Todos, setTodos] = useState([])
     const todoNameRef = useRef()
@@ -39,15 +40,15 @@ function App() {
     return (
    <>
      <TodoList todos = {Todos} toggleTodo={toggleTodo} />
-     <input ref={todoNameRef} type={"text"}/>
-     <button onClick={handleAddTodo}>
+     <input className={"input-tag"} ref={todoNameRef} type={"text"}/>
+     <button className={"button-add"} onClick={handleAddTodo}>
        Add Todo
      </button>
-     <button onClick={handleClearTodo}>
+     <button className={"button-clear"} onClick={handleClearTodo}>
        Clear Complete
      </button>
-     <div>
-         {Todos.filter(todo => !todo.complete).length} left to do
+     <div className={"todo-box"}>
+         {Todos.filter(todo => !todo.complete).length}leftTodos
      </div>
    </>
   );
